@@ -4,7 +4,7 @@ class Universes extends Component {
     render() {
         return (
             <div className="">
-              Stars
+              UNIV
             </div>
         );
     }
