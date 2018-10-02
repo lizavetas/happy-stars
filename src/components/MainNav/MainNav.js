@@ -1,38 +1,41 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 const MainNav = () => (
     <nav className="navbar">
         <div className="container">
             <div className="navbar-brand">
-                <a className="navbar-item">
-                    <span className="icon has-text-black-bis">
-                        <i className="fas fa-star"></i>
-                    </span>
-                    <span className="icon has-text-warning">
-                                <i className="fas fa-star"></i>
-                            </span>
-                    <span className="icon has-text-danger">
-                                <i className="fas fa-star"></i>
-                            </span>
-                    <span className="icon has-text-info">
-                        <i className="fas fa-star"></i>
-                    </span>
-                    <span className="icon has-text-success">
-                        <i className="fas fa-star"></i>
-                    </span>
-                </a>
+                <div className="navbar-item">
+                    <NavLink to="/" className="navbar-item is-active">
+                        <span className="icon has-text-black-bis">
+                            <i className="fas fa-lg fa-star"></i>
+                        </span>
+                        <span className="icon has-text-warning">
+                            <i className="fas fa-lg fa-star"></i>
+                        </span>
+                        <span className="icon has-text-danger">
+                            <i className="fas fa-lg fa-star"></i>
+                        </span>
+                        <span className="icon has-text-info">
+                            <i className="fas fa-lg fa-star"></i>
+                        </span>
+                        <span className="icon has-text-success">
+                            <i className="fas fa-lg fa-star"></i>
+                         </span>
+                    </NavLink>
+                </div>
                 <span className="navbar-burger burger" data-target="navbarMenuHeroA">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                          </span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-            <div className="navbar-menu is-primary">
+            <div className="navbar-menu">
                 <div className="navbar-end">
-                    <Link to="/" className="navbar-item is-active">Universes</Link>
-                    <Link to="/stars" className="navbar-item">Stars</Link>
-                    <Link to="/imprint" className="navbar-item">Imprint</Link>
+
+                    <NavLink to="/" exact className="navbar-item" activeClassName="is-active">Universes</NavLink>
+                    <NavLink to="/stars" className="navbar-item" activeClassName="is-active">Stars</NavLink>
+                    <NavLink to="/imprint" className="navbar-item" activeClassName="is-active">Imprint</NavLink>
                 </div>
             </div>
         </div>
