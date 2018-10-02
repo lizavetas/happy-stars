@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const MainNav = () => (
     <nav className="navbar">
@@ -32,7 +32,6 @@ const MainNav = () => (
             </div>
             <div className="navbar-menu">
                 <div className="navbar-end">
-
                     <NavLink to="/" exact className="navbar-item" activeClassName="is-active">Universes</NavLink>
                     <NavLink to="/stars" className="navbar-item" activeClassName="is-active">Stars</NavLink>
                     <NavLink to="/imprint" className="navbar-item" activeClassName="is-active">Imprint</NavLink>
