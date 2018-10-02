@@ -5,14 +5,18 @@ class Universes extends Component {
         super(props);
 
         this.state = {
-            title: 'TITLE'
-        }
+            title: 'TITLE',
+            stars: {
+                stars: []
+            }
+        };
+
+        console.log(111, this.props);
     }
 
     render() {
         return (
             <div className="container">
-
                 <div className="columns">
                     <div className="column">
                         <div className="box">
@@ -180,7 +184,6 @@ class Universes extends Component {
 
                         </div>
                     </div>
-
                     <div className="column">
                         <div className="box">
                             <div className="content">
