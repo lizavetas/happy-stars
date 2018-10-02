@@ -84,55 +84,60 @@ class App extends Component {
         }
     }
 
-    initState() {
-        console.log(this.state);
-
-
-    }
-
     componentDidMount() {
-        this.initState();
 
         instance.get('api/star')
             .then(response => {
                 // handle success
-
-                console.log(122222, response.data.stars);
                 this.setState({
-                    stars: response.data.stars
-                })
+                    stars: response.data
+                });
 
-                console.log(11111, this.state);
+                // @todo vereinfachen
+                this.state.universes.universes.forEach(universe => {
+                    universe.starCount = response.data.stars.filter(star => {
+                        return universe.id === star.universeId;
+                    }).length;
+
+                    universe.greenStarCount = response.data.stars.filter(star => {
+                        if (universe.id !== star.universeId) {
+                            return;
+                        }
+                        return star.color === 'GREEN';
+                    }).length;
+
+                    universe.redStarCount = response.data.stars.filter(star => {
+                        if (universe.id !== star.universeId) {
+                            return;
+                        }
+                        return star.color === 'RED';
+                    }).length;
+                });
+
+                response.data.stars.forEach(star => {
+                   this.state.universes.universes.map(universe => {
+                        if (star.universeId === universe.id) {
+                            star.starCount = universe.starCount
+                        }
+                       return universe
+                    });
+                });
+
+                this.setState({
+                    stars: this.state.stars,
+                    universes: this.state.universes
+                });
+
+                console.log(this.state);
+
             })
-            .catch(function (error) {
+            .catch(error => {
                 // handle error
                 console.log(error);
             })
-            .then(function () {
+            .then(() => {
                 // always executed
             });
-
-        /*fetch("api/universe")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.items
-                    });
-
-                    console.log(result);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )*/
     }
 
     render() {
@@ -155,10 +160,14 @@ class App extends Component {
                     <section className="section">
                         <div className="container">
                             <Route exact path='/' render={() => (
-                                <Universes universes={this.state.universes}/>
+                                <Universes
+                                    universes={this.state.universes}
+                                />
                             )}/>
                             <Route path='/stars' render={() => (
-                                <Stars stars={this.state.stars}/>
+                                <Stars
+                                    stars={this.state.stars}
+                                />
                             )}/>
                         </div>
                     </section>

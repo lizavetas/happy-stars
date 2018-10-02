@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Star = (props) => {
-    const { color } = props;
+    const { color, starCount } = props;
 
     // @todo className for icons
 
@@ -18,7 +18,7 @@ const Star = (props) => {
                 <div className="media-content">
                     <p className="title is-4">John Smith </p>
                     <div className="subtitle is-6">
-                        <p>From X Universe (100 Stars)</p>
+                        <p>From X Universe ({starCount} Stars)</p>
                     </div>
                 </div>
             </div>

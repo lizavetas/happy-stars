@@ -1,0 +1,74 @@
+{
+  "universes": [
+    {
+      "id": 113,
+      "name": "string",
+      "maxSize": 20
+    },
+    {
+      "id": 114,
+      "name": "string",
+      "maxSize": 120
+    },
+    {
+      "id": 124,
+      "name": "string",
+      "maxSize": 20
+    },
+    {
+      "id": 143,
+      "name": "string",
+      "maxSize": 10
+    },
+    {
+      "id": 144,
+      "name": "string",
+      "maxSize": 20
+    }
+  ],
+  "stars": [
+    {
+      "id": 115,
+      "name": "string",
+      "color": "RED",
+      "universeId": 114
+    },
+    {
+      "id": 117,
+      "name": "string",
+      "color": "RED",
+      "universeId": 113
+    },
+    {
+      "id": 125,
+      "name": "stringgg",
+      "color": "GREEN",
+      "universeId": 124
+    },
+    {
+      "id": 127,
+      "name": "GREas",
+      "color": "GREEN",
+      "universeId": 124
+    },
+
+    {
+      "id": 128,
+      "name": "string",
+      "color": "RED",
+      "universeId": 114
+    },
+    {
+      "id": 132,
+      "name": "string",
+      "color": "RED",
+      "universeId": 113
+    },
+    {
+      "id": 145,
+      "name": "string",
+      "color": "RED",
+      "universeId": 144
+    }
+  ]
+}
