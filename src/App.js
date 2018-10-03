@@ -117,7 +117,8 @@ class App extends Component {
                 response.data.stars.forEach(star => {
                    this.state.universes.universes.map(universe => {
                         if (star.universeId === universe.id) {
-                            star.starCount = universe.starCount
+                            star.starCount = universe.starCount;
+                            star.universeName = universe.name;
                         }
                        return universe
                     });
@@ -128,12 +129,12 @@ class App extends Component {
                     universes: this.state.universes
                 });
 
-                console.log(this.state);
+                //console.log(this.state);
 
             })
             .catch(error => {
                 // handle error
-                console.log(error);
+                //console.log(error);
             })
             .then(() => {
                 // always executed
@@ -169,6 +170,7 @@ class App extends Component {
                                     stars={this.state.stars}
                                 />
                             )}/>
+                            <Route path='/universes/:id' component={Universes}/>
                         </div>
                     </section>
                 </div>

@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 import Star from '../../components/Star/Star';
 
+
 class Stars extends Component {
     render() {
 
@@ -37,8 +38,10 @@ class Stars extends Component {
                                                 className="column"
                                                 key={index}>
                                                 <Star
+                                                    star={star}
                                                     color={star.color}
                                                     starCount={star.starCount}
+                                                    universeName={star.universeName}
                                                 />
                                             </div>
                                         )

@@ -18,6 +18,10 @@ router.render = (req, res) => {
         res.jsonp({
             stars: res.locals.data
         });
+    } else if (req.url === '/universes') {
+        res.jsonp({
+            universes: res.locals.data
+        });
     }
 };
 
