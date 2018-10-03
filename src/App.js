@@ -19,10 +19,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // wenn fail => data.universes = {} => weiter getStars
-        // wenn success => data.universes = response.data => weiter getStars
-        // success getStars.data
-        // fail {}
         this.props.fetchUniverse().then(response => {
             this.props.fetchStars().then(response => {
             });
@@ -86,7 +82,7 @@ class App extends Component {
                                     return null;
                                 }
                             }}/>
-                            <Route path='/universes/:id/add' render={(props) => {
+                            <Route path='/universes/:id/addStar' render={(props) => {
                                 if (this.props.universes) {
                                     let universe = this.props.universes.find(universe => {
                                         return universe.id.toString() === props.match.params.id;

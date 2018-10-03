@@ -12,7 +12,7 @@ const UniverseDetails = (props) => {
                     <div id="navbarMenuHeroA" className="navbar-menu">
                         <div className="navbar-start">
                             <NavLink
-                                to={"/universes/" + universe.id + "/add"}
+                                to={"/universes/" + universe.id + "/addStar"}
                                 className="navbar-item is-active">
                                 <button className="button is-primary">Add new Star</button>
                             </NavLink>
