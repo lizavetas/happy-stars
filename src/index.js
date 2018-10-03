@@ -9,7 +9,9 @@ import configurator from './store/configurator';
 
 const initState = {
     exampleReducer: {
-        stars: {}
+        isLoading: false,
+        stars: {},
+        universes: {}
     }
 };
 

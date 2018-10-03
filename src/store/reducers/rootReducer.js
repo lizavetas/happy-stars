@@ -9,11 +9,16 @@ const exampleReducer = (state = {}, action) => {
                 ...state,
                 text: (state.text === action.text) ? 'REDUX BTN' : action.text
             };
-        case actionTypes.RECV_DATA:
+        case actionTypes.GET_STARS_SUCCESS:
             return {
                 ...state,
-                data: action.data,
                 stars: action.stars,
+                isLoading: false
+            };
+        case actionTypes.GET_UNIVERSES_SUCCESS:
+            return {
+                ...state,
+                universes: action.universes,
                 isLoading: false
             };
         case actionTypes.REQ_DATA:

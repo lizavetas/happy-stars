@@ -7,7 +7,7 @@ import Universes from "./containers/Universes/Universes";
 import Stars from "./containers/Stars/Stars";
 import MainNav from "./components/MainNav/MainNav";
 
-import { fetchData } from './store/actions/index';
+import { fetchData, fetchStars, fetchUniverse } from './store/actions/index';
 
 import axios from 'axios';
 import instance from "./utils/happyStarAxiosInstance";
@@ -116,8 +116,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchData().then(response => {
-            console.log('response', typeof response);
+        // wenn fail => data.universes = {} => weiter getStars
+        // wenn success => data.universes = response.data => weiter getStars
+        // success getStars.data
+        // fail {}
+        this.props.fetchUniverse().then(response => {
+            console.log('uni', response);
+            this.props.fetchStars().then(response => {
+            })
         })
     }
 
@@ -161,12 +167,14 @@ class App extends Component {
 }
 
 const mapStatesToProps = (state) => {
+    console.log('state', state);
     return {
-        stars: state.exampleReducer.stars.stars
+        stars: state.exampleReducer.stars.stars,
+        //universes: state.exampleReducer.universes.universes
     }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({fetchData}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({fetchData, fetchStars, fetchUniverse}, dispatch);
 
 export default connect(
     mapStatesToProps,
