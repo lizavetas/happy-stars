@@ -2,3 +2,7 @@ $primary: rgb(250, 128, 114);
 $label-color: #fff;
 
 @import "../node_modules/bulma/bulma.sass";
+
+.label {
+  color: black;
+}

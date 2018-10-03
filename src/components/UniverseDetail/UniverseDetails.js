@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const UniverseDetails = (props) => {
     const {universe} = props;
@@ -11,15 +11,14 @@ const UniverseDetails = (props) => {
                 <div className="container">
                     <div id="navbarMenuHeroA" className="navbar-menu">
                         <div className="navbar-start">
-                            <a className="navbar-item">
-                                Add new Star
-                            </a>
+                            <NavLink
+                                to={"/universes/" + universe.id + "/add"}
+                                className="navbar-item is-active">
+                                <button className="button is-primary">Add new Star</button>
+                            </NavLink>
                             <div className="navbar-item">
                                 <span>Click on <button className="delete"></button> do delete a Star</span>
                             </div>
-                            <NavLink
-                                to={"/universes/" + universe.id + "/edit"}
-                                className="navbar-item is-active">aaaa</NavLink>
                         </div>
                     </div>
                 </div>

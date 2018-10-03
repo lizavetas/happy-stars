@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Universe from '../../components/Universe/Universe';
+import { NavLink } from 'react-router-dom';
 
 
 class Universes extends Component {
@@ -26,9 +27,20 @@ class Universes extends Component {
         return (
             <div className="content">
                 <h2>Universes</h2>
-                <div>
-                    <button className="button">Add new Universe</button>
-                </div>
+                <nav className="navbar">
+                    <div className="container">
+                        <div id="navbarMenuHeroA" className="navbar-menu">
+                            <div className="navbar-start">
+                                <NavLink
+                                    to={"/"}
+                                    className="navbar-item is-active">
+                                    <button className="button is-primary">Add new Universe</button>
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <br />
                 {
                     columns.length > 0 &&
                     columns.map((universes, index) => {

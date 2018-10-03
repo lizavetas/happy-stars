@@ -7,6 +7,7 @@ import Universes from "./containers/Universes/Universes";
 import Stars from "./containers/Stars/Stars";
 import UniverseDetails from './components/UniverseDetail/UniverseDetails';
 import MainNav from "./components/MainNav/MainNav";
+import EditUniverse from "./components/EditUniverse/EditUniverse";
 
 import {fetchData, fetchStars, fetchUniverse, deleteStar} from './store/actions/index';
 
@@ -25,7 +26,7 @@ class App extends Component {
         this.props.fetchUniverse().then(response => {
             this.props.fetchStars().then(response => {
             });
-        })
+        });
     }
 
     render() {
@@ -74,18 +75,18 @@ class App extends Component {
                                     if (!universe) {
                                         return null;
                                     }
-                                    return <UniverseDetails
-                                        id={props.match.params.id}
-                                        universe={universe}
-                                        deleteStar={this.props.deleteStar}
-                                    />
+                                    return (
+                                        <UniverseDetails
+                                            id={props.match.params.id}
+                                            universe={universe}
+                                            deleteStar={this.props.deleteStar}
+                                        />
+                                    )
                                 } else {
                                     return null;
                                 }
                             }}/>
-                            <Route path='/universes/:id/edit' render={(props) => {
-
-                                console.log('??????', props.match.params.id)
+                            <Route path='/universes/:id/add' render={(props) => {
                                 if (this.props.universes) {
                                     let universe = this.props.universes.find(universe => {
                                         return universe.id.toString() === props.match.params.id;
@@ -94,7 +95,14 @@ class App extends Component {
                                     if (!universe) {
                                         return null;
                                     }
-                                    return <div>34443</div>
+
+                                    return (
+                                        <EditUniverse
+                                            id={props.match.params.id}
+                                            universeName={universe.name}
+                                        />
+                                    )
+
                                 } else {
                                     return null;
                                 }
