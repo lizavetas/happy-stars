@@ -83,6 +83,22 @@ class App extends Component {
                                     return null;
                                 }
                             }}/>
+                            <Route path='/universes/:id/edit' render={(props) => {
+
+                                console.log('??????', props.match.params.id)
+                                if (this.props.universes) {
+                                    let universe = this.props.universes.find(universe => {
+                                        return universe.id.toString() === props.match.params.id;
+                                    });
+
+                                    if (!universe) {
+                                        return null;
+                                    }
+                                    return <div>34443</div>
+                                } else {
+                                    return null;
+                                }
+                            }}/>
                         </div>
                     </section>
                 </div>

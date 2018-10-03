@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 const UniverseDetails = (props) => {
     const {universe} = props;
@@ -16,6 +17,9 @@ const UniverseDetails = (props) => {
                             <div className="navbar-item">
                                 <span>Click on <button className="delete"></button> do delete a Star</span>
                             </div>
+                            <NavLink
+                                to={"/universes/" + universe.id + "/edit"}
+                                className="navbar-item is-active">aaaa</NavLink>
                         </div>
                     </div>
                 </div>

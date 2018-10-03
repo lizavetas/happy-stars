@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Universe from '../../components/Universe/Universe'
+import Universe from '../../components/Universe/Universe';
+
 
 class Universes extends Component {
     render() {
