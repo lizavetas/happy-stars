@@ -13,7 +13,8 @@ const initState = {
     exampleReducer: {
         text: 'Redux Btn',
         data: {},
-        isLoading: false
+        isLoading: false,
+        stars: {}
     }
 };
 

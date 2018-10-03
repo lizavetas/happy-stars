@@ -7,7 +7,7 @@ class Stars extends Component {
     render() {
 
         const { stars } = this.props;
-        let columns;
+        let columns = [];
 
         // @todo utils
         const createColumns = (columns, columnSize) => {
@@ -17,14 +17,18 @@ class Stars extends Component {
                 }
                 return result;
             }, [])
+
         };
 
-        columns = createColumns(stars.stars, 3);
+        if (stars) {
+            columns = createColumns(stars, 3);
+        }
+
 
         return (
             <div>
                 {
-                    columns.length > 0 &&
+                   columns.length > 0 &&
                     columns.map((stars, index) => {
                         return (
                             <div

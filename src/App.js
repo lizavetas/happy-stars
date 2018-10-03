@@ -9,7 +9,7 @@ import instance from './utils/happyStarAxiosInstance';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { clickButton, fetchData } from './store/actions/index';
+import { fetchData } from './store/actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -148,6 +148,10 @@ class App extends Component {
     }
 
     render() {
+        if (this.props.stars) {
+            console.log('dt.stars', this.props.stars);
+        }
+
         return (
             <Router>
                 <div>
@@ -173,7 +177,7 @@ class App extends Component {
                             )}/>
                             <Route path='/stars' render={() => (
                                 <Stars
-                                    stars={this.state.stars}
+                                    stars={this.props.stars}
                                 />
                             )}/>
                             <Route path='/universes/:id' component={Universes}/>
@@ -187,12 +191,11 @@ class App extends Component {
 
 const mapStatesToProps = (state) => {
     return {
-        text: state.exampleReducer.text,
-        isLoading: state.exampleReducer.isLoading
+        stars: state.exampleReducer.data.stars,
     }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({clickButton, fetchData}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({fetchData}, dispatch);
 
 export default connect(
     mapStatesToProps,
