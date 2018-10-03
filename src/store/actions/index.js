@@ -22,11 +22,15 @@ const receiveError = (json) => {
     }
 };
 
+const fetchUniverse = () => {
+
+};
+
 export const fetchData = (city) => {
-    const url = 'api/star';
+    const url = 'api/starr';
 
     return (dispatch) => {
-        dispatch(requestData());
+        //dispatch(requestData());
 
         return instance.get(url)
             .then((response) => {
@@ -36,18 +40,10 @@ export const fetchData = (city) => {
             })
             .catch((response) => {
                 dispatch(receiveError(response.data));
+                console.log('warum', response);
                 return(response);
             })
-            .then((response) => {
-                instance.get('api/universe')
-                    .then((response) => {
-                        console.log(response);
-                        return response;
-                    })
-                    .catch((response) => {
-                        return(response);
-                    })
-            })
+
     }
 };
 

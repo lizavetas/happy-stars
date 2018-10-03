@@ -9,6 +9,9 @@ import MainNav from "./components/MainNav/MainNav";
 
 import { fetchData } from './store/actions/index';
 
+import axios from 'axios';
+import instance from "./utils/happyStarAxiosInstance";
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -44,10 +47,78 @@ class App extends Component {
                 ]
             }
         }
+
+
+    /*    function getUserAccount() {
+            return axios.get('api/star')
+                .then((response) => {
+
+                    return response;
+                })
+                .catch((response) => {
+                    return(response);
+                })
+        }
+
+        function getUserPermissions() {
+            return axios.get('/api/universe');
+        }
+
+        axios.all([getUserAccount(), getUserPermissions()])
+            .then(axios.spread(function (acct, perms) {
+                // Both requests are now complete
+                console.log(acct, perms);
+            }));*/
+
+        const getStars = () => {
+            return axios.get('http://localhost:3200/ai/star')
+                .then(response => {
+                    return response
+                }).catch(error => {
+                    return error
+                });
+            };
+
+        const getUniverses = () => {
+            return axios.get('http://localhost:3200/api/universe')
+                .then(response => {
+                    return response
+                })
+                .catch(error => {
+                    return error
+                });
+        };
+
+        const countStars = async () => {
+            return getStars()
+                .then(response => {
+                    if (response.data.stars) {
+                        console.log(`Got ${Object.entries(response.data.stars).length} Stars`)
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        };
+
+
+        countStars();
+
+  /*      axios.all([getUniverses(), getStars()])
+            .then(response => {
+                // Both requests are now complete
+                console.log(122222, response);
+            })
+            .catch(error => {
+                console.log('error');
+            });*/
+
     }
 
     componentDidMount() {
-        this.props.fetchData();
+        this.props.fetchData().then(response => {
+            console.log('response', typeof response);
+        })
     }
 
     render() {
@@ -90,7 +161,6 @@ class App extends Component {
 }
 
 const mapStatesToProps = (state) => {
-    console.log(state);
     return {
         stars: state.exampleReducer.stars.stars
     }
