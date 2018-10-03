@@ -25,6 +25,9 @@ class Universes extends Component {
         return (
             <div className="content">
                 <h2>Universes</h2>
+                <div>
+                    <button className="button">Add new Universe</button>
+                </div>
                 {
                     columns.length > 0 &&
                     columns.map((universes, index) => {

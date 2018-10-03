@@ -65,7 +65,7 @@ class App extends Component {
                                     columnSize={3}
                                 />
                             )}/>
-                            <Route path='/universes/:id' render={(props) => {
+                            <Route exact path='/universes/:id' render={(props) => {
                                 if (this.props.universes) {
                                     let universe = this.props.universes.find(universe => {
                                         return universe.id.toString() === props.match.params.id;
