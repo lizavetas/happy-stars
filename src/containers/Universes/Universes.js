@@ -23,7 +23,6 @@ class Universes extends Component {
         }
         columns = createColumns(universes, columnSize);
 
-        console.log('col', columns);
         return (
             <div>
                 {
@@ -41,6 +40,9 @@ class Universes extends Component {
                                                 className="column"
                                                 key={index}>
                                                 <Universe
+                                                    name={universe.name}
+                                                    maxSize={universe.maxSize}
+                                                    starCount={universe.starCount}
                                                 />
                                             </div>
                                         )
