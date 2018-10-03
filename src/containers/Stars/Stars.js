@@ -8,6 +8,8 @@ class Stars extends Component {
         const {stars, columnSize} = this.props;
         let columns = [];
 
+        console.log(stars);
+
         // @todo utils
         const createColumns = (columns, columnSize) => {
             return columns.reduce((result, value, index, array) => {

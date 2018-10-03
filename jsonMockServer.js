@@ -13,7 +13,7 @@ server.use(jsonServer.rewriter({
 }));
 
 
-router.render = (req, res) => {
+/*router.render = (req, res) => {
     if (req.url === '/stars') {
         res.jsonp({
             stars: res.locals.data
@@ -23,7 +23,7 @@ router.render = (req, res) => {
             universes: res.locals.data
         });
     }
-};
+};*/
 
 server.use(router);
 

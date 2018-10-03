@@ -1,85 +1,69 @@
 import React from 'react';
 
 const UniverseDetails = (props) => {
-    const { universe} = props;
+    const {universe} = props;
 
-    return(
-        <div className="box">
-            <div className="content">
+    return (
+        <div className="content">
+            <h2>Universe Details</h2>
+            <div>
+                <button className="button is-primary">Add new Star</button>
+            </div>
+            <div className="box">
                 <h2>
                     <span
                         className="icon"
                         style={{display: "inline", marginRight: "10px"}}>
                         <i className="fas fa-bullseye"></i>
-                    </span>{ universe.name}
+                    </span>{universe.name}
                 </h2>
-                <p>Current Size: <strong>{ universe.starCount}</strong></p>
-                <p>Max. Size: <strong>{ universe.maxSize}</strong></p>
+                <p>Current Size: <strong>{universe.starCount}</strong></p>
+                <p>Max. Size: <strong>{universe.maxSize}</strong></p>
 
-                <table className="table is-fullwidth">
-                    <thead>
-                    <tr>
-                        <th>
-                            Star
-                        </th>
-                        <th>
-                            Size
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                                                    <span className="icon has-text-warning"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                        </td>
-                        <td>5000000</td>
-                    </tr>
-                    <tr>
-                        <td>
-                                                    <span className="icon has-text-danger"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                        </td>
-                        <td>
-                            5000000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                                                    <span className="icon has-text-link"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                        </td>
-                        <td>2000</td>
-                    </tr>
-                    <tr>
-                        <td>
-                                                    <span className="icon has-text-success"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                        </td>
-                        <td>5000000</td>
-                    </tr>
-                    <tr>
-                        <td>
-                                                    <span className="icon has-text-black-bis"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                        </td>
-                        <td>5000000</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <h3>Stars</h3>
+
+                <div className="tags">
+                    {
+                        universe.stars && universe.stars.map(star => {
+                            let className;
+
+                            function tagColor(color) {
+                                switch (color) {
+                                    case 'RED':
+                                        return 'is-danger';
+                                    case 'GREEN':
+                                        return 'is-success';
+                                    case 'YELLOW':
+                                        return 'is-warning';
+                                    case 'BLUE':
+                                        return 'is-info';
+                                    case 'BLACK':
+                                        return 'is-black';
+                                    default:
+                                        return '';
+                                }
+                            }
+
+                            className = tagColor(star.color);
+
+                            return (
+                                <span
+                                    className={"tag is-large " + className}
+                                    key={star.id}>
+                                    {star.name}
+                                    <button
+                                        className="delete"
+                                        onClick={() => props.deleteStar(star.id)}>
+                                    </button>
+                                </span>
+                            )
+                        })
+                    }
+                </div>
             </div>
-
         </div>
+
+
     )
 };
 

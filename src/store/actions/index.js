@@ -53,7 +53,6 @@ export const fetchUniverse = () => {
     }
 };
 
-
 const getStarsFail = (json) => {
     return {
         type: actionTypes.GET_STARS_FAIL,
@@ -65,6 +64,29 @@ const getStarsSuccess = (json) => {
     return {
         type: actionTypes.GET_STARS_SUCCESS,
         stars: json
+    }
+};
+
+const deleteStarSuccess = (id) => {
+    return {
+        type: actionTypes.DELETE_STAR_SUCCESS,
+        id: id
+    }
+};
+
+export const deleteStar = (id) => {
+    const url = 'api/star/' + id;
+    return (dispatch) => {
+        return instance.delete(url)
+            .then(response => {
+                console.log(response);
+                dispatch(deleteStarSuccess(id));
+                return response;
+            })
+            .catch((response) => {
+                console.log(response);
+                return(response);
+            })
     }
 };
 
@@ -99,4 +121,6 @@ export const fetchData = () => {
             })
     }
 };
+
+
 

@@ -57,18 +57,11 @@
       "color": "BLACK",
       "universeId": 124
     },
-
     {
       "id": 128,
       "name": "string",
       "color": "RED",
       "universeId": 114
-    },
-    {
-      "id": 132,
-      "name": "string",
-      "color": "RED",
-      "universeId": 113
     },
     {
       "id": 145,

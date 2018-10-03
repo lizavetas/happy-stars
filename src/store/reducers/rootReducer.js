@@ -21,7 +21,7 @@ const exampleReducer = (state = {}, action) => {
                 universes: action.universes,
                 isLoading: false
             };
-        case actionTypes.REQ_DATA:
+        case actionTypes.DELETE_STAR_SUCCESS:
             return {
                 ...state,
                 isLoading: true

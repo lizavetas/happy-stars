@@ -20,6 +20,10 @@ export const GET_STARS_START = 'GET_STARS_START';
 export const GET_STARS_SUCCESS = 'GET_STARS_SUCCESS';
 export const GET_STARS_FAIL = 'GET_STARS_FAIL';
 
+
+export const DELETE_STAR_SUCCESS = 'DELETE_STAR_SUCCESS';
+export const DELETE_STAR_FAIL = 'DELETE_STARS_FAIL';
+
 export const CLICK_BUTTON = 'CLICK_BUTTON';
 export const RECV_ERROR = 'RECV_ERROR';
 export const REQ_DATA = 'REQ_DATA';
