@@ -1,211 +1,55 @@
 import React, {Component} from 'react';
 
-class Universes extends Component {
-    constructor(props) {
-        super(props);
+import Universe from '../../components/Universe/Universe'
 
-        this.state = {
-            title: 'TITLE',
-            stars: {
-                stars: []
-            }
+class Universes extends Component {
+    render() {
+
+        const {universes, columnSize} = this.props;
+        let columns = [];
+
+        // @todo utils
+        const createColumns = (columns, columnSize) => {
+            return columns.reduce((result, value, index, array) => {
+                if (index % columnSize === 0) {
+                    result.push(array.slice(index, index + columnSize));
+                }
+                return result;
+            }, [])
         };
 
-        console.log(111, this.props);
-    }
+        if (!universes) {
+            return null;
+        }
+        columns = createColumns(universes, columnSize);
 
-    render() {
+        console.log('col', columns);
         return (
-            <div className="container">
-                <div className="columns">
-                    <div className="column">
-                        <div className="box">
-                            <div className="content">
-                                <h2>
-                                        <span className="icon"
-                                              style={{display: "inline", marginRight: "10px"}}>
-
-                                               <i className="fas fa-bullseye"></i>
-                                        </span>Universe
-                                </h2>
-
-                                <p>Current Size: <strong>10</strong></p>
-                                <p>Max. Size: 10</p>
+            <div>
+                {
+                    columns.length > 0 &&
+                    columns.map((universes, index) => {
+                        return (
+                            <div
+                                className="columns"
+                                key={index}>
+                                {
+                                    universes.length > 0 &&
+                                    universes.map((universe, index) => {
+                                        return (
+                                            <div
+                                                className="column"
+                                                key={index}>
+                                                <Universe
+                                                />
+                                            </div>
+                                        )
+                                    })
+                                }
                             </div>
-                                <table className="table is-fullwidth">
-                                    <thead>
-                                    <tr>
-                                        <th>
-                                            Star
-                                        </th>
-                                        <th>
-                                            Size
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                                    <span className="icon has-text-warning"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                        </td>
-                                        <td>5000000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                                    <span className="icon has-text-danger"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                        </td>
-                                        <td>
-                                            5000000
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                                    <span className="icon has-text-link"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                        </td>
-                                        <td>2000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                                    <span className="icon has-text-success"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                        </td>
-                                        <td>5000000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                                    <span className="icon has-text-black-bis"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                        </td>
-                                        <td>5000000</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <nav className="level is-mobile">
-                                    <div className="level-left">
-                                        <a className="level-item button is-primary">Details</a>
-                                    </div>
-                                </nav>
-
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="box">
-                            <div className="content">
-                                <h2>
-                                        <span className="icon"
-                                              style={{display: "inline", marginRight: "10px"}}>
-
-                                               <i className="fas fa-bullseye"></i>
-                                        </span>Universe
-                                </h2>
-
-                                <p>Current Size: <strong>10</strong></p>
-                                <p>Max. Size: 10</p>
-                            </div>
-                            <table className="table is-fullwidth">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Star
-                                    </th>
-                                    <th>
-                                        Size
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                                    <span className="icon has-text-warning"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                    </td>
-                                    <td>5000000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                    <span className="icon has-text-danger"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                    </td>
-                                    <td>
-                                        5000000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                    <span className="icon has-text-link"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                    </td>
-                                    <td>2000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                    <span className="icon has-text-success"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                    </td>
-                                    <td>5000000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                    <span className="icon has-text-black-bis"
-                                                          style={{display: "inline", marginRight: "5px"}}>
-                                                        <i className="fas fa-star"></i>
-                                                    </span>
-                                    </td>
-                                    <td>5000000</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <nav className="level is-mobile">
-                                <div className="level-left">
-                                    <a className="level-item button is-primary">Details</a>
-                                </div>
-                            </nav>
-
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="box">
-                            <div className="content">
-                                <h2>
-                                        <span className="icon"
-                                              style={{display: "inline", marginRight: "10px"}}>
-
-                                               <i className="fas fa-bullseye"></i>
-                                        </span>Universe
-                                </h2>
-
-                                <p>Current Size: <strong>10</strong></p>
-                                <p>Max. Size: 10</p>
-                                <nav className="level is-mobile">
-                                    <div className="level-left">
-                                        <a className="level-item button is-primary">Details</a>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        )
+                    })
+                }
             </div>
         );
     }

@@ -2,33 +2,39 @@
   "universes": [
     {
       "id": 113,
-      "name": "string",
+      "name": "string1",
       "maxSize": 20
     },
     {
       "id": 114,
-      "name": "string",
+      "name": "string2",
       "maxSize": 120
     },
     {
       "id": 124,
-      "name": "string",
+      "name": "string3",
       "maxSize": 20
     },
     {
       "id": 143,
-      "name": "string",
+      "name": "string4",
       "maxSize": 10
     },
     {
       "id": 144,
-      "name": "string",
+      "name": "string5",
       "maxSize": 20
     }
   ],
   "stars": [
     {
       "id": 115,
+      "name": "string",
+      "color": "GREEN",
+      "universeId": 114
+    },
+    {
+      "id": 222,
       "name": "string",
       "color": "GREEN",
       "universeId": 114

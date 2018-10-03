@@ -70,7 +70,7 @@ class App extends Component {
                 console.log(acct, perms);
             }));*/
 
-        const getStars = () => {
+ /*       const getStars = () => {
             return axios.get('http://localhost:3200/ai/star')
                 .then(response => {
                     return response
@@ -102,7 +102,7 @@ class App extends Component {
         };
 
 
-        countStars();
+        countStars()*/;
 
   /*      axios.all([getUniverses(), getStars()])
             .then(response => {
@@ -121,7 +121,6 @@ class App extends Component {
         // success getStars.data
         // fail {}
         this.props.fetchUniverse().then(response => {
-            console.log('uni', response);
             this.props.fetchStars().then(response => {
             })
         })
@@ -148,7 +147,8 @@ class App extends Component {
                         <div className="container">
                             <Route exact path='/' render={() => (
                                 <Universes
-                                    universes={this.state.universes}
+                                    universes={this.props.universes}
+                                    columnSize={3}
                                 />
                             )}/>
                             <Route path='/stars' render={() => (
@@ -168,9 +168,58 @@ class App extends Component {
 
 const mapStatesToProps = (state) => {
     console.log('state', state);
+
+    if (state.exampleReducer.universes && state.exampleReducer.universes.universes
+        && state.exampleReducer.stars && state.exampleReducer.stars.stars) {
+        // @todo vereinfachen
+        state.exampleReducer.universes.universes.forEach(universe => {
+            universe.starCount = state.exampleReducer.stars.stars.filter(star => {
+                return universe.id === star.universeId;
+            }).length;
+
+   /*         universe.greenStarCount = response.data.stars.filter(star => {
+                if (universe.id !== star.universeId) {
+                    return;
+                }
+                return star.color === 'GREEN';
+            }).length;
+
+            universe.redStarCount = response.data.stars.filter(star => {
+                if (universe.id !== star.universeId) {
+                    return;
+                }
+                return star.color === 'RED';
+            }).length;*/
+        });
+
+        state.exampleReducer.stars.stars.forEach(star => {
+            state.exampleReducer.universes.universes.map(universe => {
+                if (star.universeId === universe.id) {
+                    star.starCount = universe.starCount;
+                    star.universeName = universe.name;
+                }
+                return universe
+            });
+        });
+    }
+
+
+  /*  response.data.stars.forEach(star => {
+        this.state.universes.universes.map(universe => {
+            if (star.universeId === universe.id) {
+                star.starCount = universe.starCount;
+                star.universeName = universe.name;
+            }
+            return universe
+        });
+    });*/
+
+
+    console.log('state', state);
+
     return {
         stars: state.exampleReducer.stars.stars,
-        //universes: state.exampleReducer.universes.universes
+        universes: state.exampleReducer.universes.universes
     }
 };
 

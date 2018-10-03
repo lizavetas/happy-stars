@@ -97,16 +97,13 @@ export const fetchData = () => {
 
         return instance.get(url)
             .then((response) => {
-                console.log(response);
                 dispatch(receiveData(response.data));
                 return response;
             })
             .catch((response) => {
                 dispatch(receiveError(response.data));
-                console.log('warum', response);
                 return(response);
             })
-
     }
 };
 

@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react';
 
 import Star from '../../components/Star/Star';
 
-
 class Stars extends Component {
     render() {
 
@@ -19,9 +18,10 @@ class Stars extends Component {
             }, [])
         };
 
-        if (stars) {
-            columns = createColumns(stars, columnSize);
+        if (!stars) {
+            return null;
         }
+        columns = createColumns(stars, columnSize);
 
         return (
             <div>
