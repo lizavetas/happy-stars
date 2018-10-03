@@ -6,9 +6,21 @@ const UniverseDetails = (props) => {
     return (
         <div className="content">
             <h2>Universe Details</h2>
-            <div>
-                <button className="button is-primary">Add new Star</button>
-            </div>
+            <nav className="navbar">
+                <div className="container">
+                    <div id="navbarMenuHeroA" className="navbar-menu">
+                        <div className="navbar-start">
+                            <a className="navbar-item">
+                                Add new Star
+                            </a>
+                            <div className="navbar-item">
+                                <span>Click on <button className="delete"></button> do delete a Star</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <br />
             <div className="box">
                 <h2>
                     <span

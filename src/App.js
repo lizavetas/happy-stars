@@ -70,6 +70,10 @@ class App extends Component {
                                     let universe = this.props.universes.find(universe => {
                                         return universe.id.toString() === props.match.params.id;
                                     });
+
+                                    if (!universe) {
+                                        return null;
+                                    }
                                     return <UniverseDetails
                                         id={props.match.params.id}
                                         universe={universe}
