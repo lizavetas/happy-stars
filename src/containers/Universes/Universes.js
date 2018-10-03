@@ -32,7 +32,7 @@ class Universes extends Component {
                         <div id="navbarMenuHeroA" className="navbar-menu">
                             <div className="navbar-start">
                                 <NavLink
-                                    to={"/"}
+                                    to={"/universes/add"}
                                     className="navbar-item is-active">
                                     <button className="button is-primary">Add new Universe</button>
                                 </NavLink>

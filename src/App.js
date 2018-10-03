@@ -8,6 +8,7 @@ import Stars from "./containers/Stars/Stars";
 import UniverseDetails from './components/UniverseDetail/UniverseDetails';
 import MainNav from "./components/MainNav/MainNav";
 import AddNewStar from "./components/AddNewStar/AddNewStar";
+import AddNewUniverse from "./components/AddNewUniverse/AddNewUniverse";
 
 import {fetchData, fetchStars, fetchUniverse, deleteStar} from './store/actions/index';
 
@@ -102,6 +103,11 @@ class App extends Component {
                                 } else {
                                     return null;
                                 }
+                            }}/>
+                            <Route path='/universes/add' render={(props) => {
+                                return (
+                                    <AddNewUniverse/>
+                                )
                             }}/>
                         </div>
                     </section>

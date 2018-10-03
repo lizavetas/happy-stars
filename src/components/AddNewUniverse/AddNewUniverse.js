@@ -11,4 +11,4 @@ const AddNewUniverse = (props) => {
 };
 
 
-export default v;
+export default AddNewUniverse;
