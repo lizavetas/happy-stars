@@ -7,7 +7,7 @@ import Universes from "./containers/Universes/Universes";
 import Stars from "./containers/Stars/Stars";
 import UniverseDetails from './components/UniverseDetail/UniverseDetails';
 import MainNav from "./components/MainNav/MainNav";
-import EditUniverse from "./components/EditUniverse/EditUniverse";
+import AddNewStar from "./components/AddNewStar/AddNewStar";
 
 import {fetchData, fetchStars, fetchUniverse, deleteStar} from './store/actions/index';
 
@@ -97,7 +97,7 @@ class App extends Component {
                                     }
 
                                     return (
-                                        <EditUniverse
+                                        <AddNewStar
                                             id={props.match.params.id}
                                             universeName={universe.name}
                                         />
