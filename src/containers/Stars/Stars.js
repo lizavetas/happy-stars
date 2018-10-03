@@ -6,7 +6,7 @@ import Star from '../../components/Star/Star';
 class Stars extends Component {
     render() {
 
-        const { stars } = this.props;
+        const {stars, columnSize} = this.props;
         let columns = [];
 
         // @todo utils
@@ -17,18 +17,16 @@ class Stars extends Component {
                 }
                 return result;
             }, [])
-
         };
 
         if (stars) {
-            columns = createColumns(stars, 3);
+            columns = createColumns(stars, columnSize);
         }
-
 
         return (
             <div>
                 {
-                   columns.length > 0 &&
+                    columns.length > 0 &&
                     columns.map((stars, index) => {
                         return (
                             <div

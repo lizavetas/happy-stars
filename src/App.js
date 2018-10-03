@@ -1,14 +1,12 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Universes from "./containers/Universes/Universes";
 import Stars from "./containers/Stars/Stars";
 import MainNav from "./components/MainNav/MainNav";
 
-import instance from './utils/happyStarAxiosInstance';
-
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { fetchData } from './store/actions/index';
 
 class App extends Component {
@@ -16,46 +14,6 @@ class App extends Component {
         super(props);
 
         this.state = {
-            stars: {
-                stars: [
-/*                    {
-                        "id": 115,
-                        "name": "string",
-                        "color": "RED",
-                        "universeId": 114
-                    },
-                    {
-                        "id": 117,
-                        "name": "string",
-                        "color": "RED",
-                        "universeId": 113
-                    },
-                    {
-                        "id": 125,
-                        "name": "stringgg",
-                        "color": "GREEN",
-                        "universeId": 124
-                    },
-                    {
-                        "id": 128,
-                        "name": "string",
-                        "color": "RED",
-                        "universeId": 114
-                    },
-                    {
-                        "id": 132,
-                        "name": "string",
-                        "color": "RED",
-                        "universeId": 113
-                    },
-                    {
-                        "id": 145,
-                        "name": "string",
-                        "color": "RED",
-                        "universeId": 144
-                    }*/
-                ],
-            },
             universes: {
                 universes: [
                     {
@@ -89,69 +47,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-
         this.props.fetchData();
-
-        instance.get('api/star')
-            .then(response => {
-                // handle success
-                this.setState({
-                    stars: response.data
-                });
-
-                // @todo vereinfachen
-                this.state.universes.universes.forEach(universe => {
-                    universe.starCount = response.data.stars.filter(star => {
-                        return universe.id === star.universeId;
-                    }).length;
-
-                    universe.greenStarCount = response.data.stars.filter(star => {
-                        if (universe.id !== star.universeId) {
-                            return;
-                        }
-                        return star.color === 'GREEN';
-                    }).length;
-
-                    universe.redStarCount = response.data.stars.filter(star => {
-                        if (universe.id !== star.universeId) {
-                            return;
-                        }
-                        return star.color === 'RED';
-                    }).length;
-                });
-
-                response.data.stars.forEach(star => {
-                   this.state.universes.universes.map(universe => {
-                        if (star.universeId === universe.id) {
-                            star.starCount = universe.starCount;
-                            star.universeName = universe.name;
-                        }
-                       return universe
-                    });
-                });
-
-                this.setState({
-                    stars: this.state.stars,
-                    universes: this.state.universes
-                });
-
-                //console.log(this.state);
-
-            })
-            .catch(error => {
-                // handle error
-                //console.log(error);
-            })
-            .then(() => {
-                // always executed
-            });
     }
 
     render() {
-        if (this.props.stars) {
-            console.log('dt.stars', this.props.stars);
-        }
-
         return (
             <Router>
                 <div>
@@ -178,6 +77,7 @@ class App extends Component {
                             <Route path='/stars' render={() => (
                                 <Stars
                                     stars={this.props.stars}
+                                    columnSize={3}
                                 />
                             )}/>
                             <Route path='/universes/:id' component={Universes}/>
