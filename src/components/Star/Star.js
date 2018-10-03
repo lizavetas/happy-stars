@@ -36,7 +36,7 @@ const Star = (props) => {
                 <div className="media-content">
                     <p className="title is-4">John Smith </p>
                     <div className="subtitle is-6">
-                        <p>From {universeName} Universe ({starCount} Stars)</p>
+                        <p>From <strong>{universeName}</strong> Universe ({starCount} Stars)</p>
                     </div>
                 </div>
             </div>

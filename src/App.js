@@ -167,7 +167,6 @@ class App extends Component {
 }
 
 const mapStatesToProps = (state) => {
-    console.log('state', state);
 
     if (state.exampleReducer.universes && state.exampleReducer.universes.universes
         && state.exampleReducer.stars && state.exampleReducer.stars.stars) {
@@ -176,20 +175,6 @@ const mapStatesToProps = (state) => {
             universe.starCount = state.exampleReducer.stars.stars.filter(star => {
                 return universe.id === star.universeId;
             }).length;
-
-   /*         universe.greenStarCount = response.data.stars.filter(star => {
-                if (universe.id !== star.universeId) {
-                    return;
-                }
-                return star.color === 'GREEN';
-            }).length;
-
-            universe.redStarCount = response.data.stars.filter(star => {
-                if (universe.id !== star.universeId) {
-                    return;
-                }
-                return star.color === 'RED';
-            }).length;*/
         });
 
         state.exampleReducer.stars.stars.forEach(star => {
@@ -202,20 +187,6 @@ const mapStatesToProps = (state) => {
             });
         });
     }
-
-
-  /*  response.data.stars.forEach(star => {
-        this.state.universes.universes.map(universe => {
-            if (star.universeId === universe.id) {
-                star.starCount = universe.starCount;
-                star.universeName = universe.name;
-            }
-            return universe
-        });
-    });*/
-
-
-    console.log('state', state);
 
     return {
         stars: state.exampleReducer.stars.stars,
