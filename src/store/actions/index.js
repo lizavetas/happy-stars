@@ -43,13 +43,11 @@ export const fetchUniverse = () => {
     return (dispatch) => {
         return instance.get(url)
             .then((response) => {
-                console.log(response);
                 dispatch(getUniversesSuccess(response.data));
                 return response;
             })
             .catch((response) => {
                 dispatch(getUniversesFail(response.data));
-                console.log('warum', response);
                 return(response);
             })
     }
@@ -74,7 +72,6 @@ export const fetchStars = () => {
     const url = 'api/star';
 
     return (dispatch) => {
-        //dispatch(requestData());
         return instance.get(url)
             .then((response) => {
                 dispatch(getStarsSuccess(response.data));
@@ -87,14 +84,10 @@ export const fetchStars = () => {
     }
 };
 
-// @todo fetch universe => then fetch stars => then return obj
-
 export const fetchData = () => {
     const url = 'api/star';
 
     return (dispatch) => {
-        //dispatch(requestData());
-
         return instance.get(url)
             .then((response) => {
                 dispatch(receiveData(response.data));

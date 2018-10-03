@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import Universe from '../../components/Universe/Universe'
 
 class Universes extends Component {
@@ -24,7 +23,8 @@ class Universes extends Component {
         columns = createColumns(universes, columnSize);
 
         return (
-            <div>
+            <div className="content">
+                <h2>Universes</h2>
                 {
                     columns.length > 0 &&
                     columns.map((universes, index) => {
@@ -43,6 +43,7 @@ class Universes extends Component {
                                                     name={universe.name}
                                                     maxSize={universe.maxSize}
                                                     starCount={universe.starCount}
+                                                    id={universe.id}
                                                 />
                                             </div>
                                         )

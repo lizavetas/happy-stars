@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 const Universe = (props) => {
 
@@ -19,7 +20,11 @@ const Universe = (props) => {
             </div>
             <nav className="level is-mobile">
                 <div className="level-left">
-                    <a className="level-item button is-primary">Details</a>
+                    <NavLink
+                        to={"/universes/" + props.id}
+                        className="level-item button is-primary">
+                        Details
+                    </NavLink>
                 </div>
             </nav>
         </div>

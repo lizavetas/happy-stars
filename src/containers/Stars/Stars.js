@@ -24,7 +24,8 @@ class Stars extends Component {
         columns = createColumns(stars, columnSize);
 
         return (
-            <div>
+            <div className="content">
+                <h2>Stars</h2>
                 {
                     columns.length > 0 &&
                     columns.map((stars, index) => {
