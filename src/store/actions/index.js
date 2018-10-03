@@ -38,7 +38,7 @@ export const fetchData = (city) => {
                 dispatch(receiveError(response.data));
                 return(response);
             })
-            .then(() => {
+            .then((response) => {
                 instance.get('api/universe')
                     .then((response) => {
                         console.log(response);

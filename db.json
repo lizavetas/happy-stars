@@ -30,25 +30,25 @@
     {
       "id": 115,
       "name": "string",
-      "color": "RED",
+      "color": "GREEN",
       "universeId": 114
     },
     {
       "id": 117,
       "name": "string",
-      "color": "RED",
+      "color": "YELLOW",
       "universeId": 113
     },
     {
       "id": 125,
       "name": "stringgg",
-      "color": "GREEN",
+      "color": "BLUE",
       "universeId": 124
     },
     {
       "id": 127,
       "name": "GREas",
-      "color": "GREEN",
+      "color": "BLACK",
       "universeId": 124
     },
 

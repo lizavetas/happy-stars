@@ -9,7 +9,7 @@ import configurator from './store/configurator';
 
 const initState = {
     exampleReducer: {
-        data: {},
+        stars: {}
     }
 };
 

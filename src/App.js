@@ -90,8 +90,9 @@ class App extends Component {
 }
 
 const mapStatesToProps = (state) => {
+    console.log(state);
     return {
-        stars: state.exampleReducer.data.stars,
+        stars: state.exampleReducer.stars.stars
     }
 };
 

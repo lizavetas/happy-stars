@@ -11,11 +11,11 @@ const Star = (props) => {
             case 'GREEN':
                 return 'has-text-success';
             case 'YELLOW':
-                return 'has-text-danger';
+                return 'has-text-warning';
             case 'BLUE':
-                return 'has-text-success';
+                return 'has-text-info';
             case 'BLACK':
-                return 'has-text-success';
+                return 'has-text-black-bis';
             default:
                 return 'icon';
         }

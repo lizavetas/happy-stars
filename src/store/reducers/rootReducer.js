@@ -13,6 +13,7 @@ const exampleReducer = (state = {}, action) => {
             return {
                 ...state,
                 data: action.data,
+                stars: action.stars,
                 isLoading: false
             };
         case actionTypes.REQ_DATA:
