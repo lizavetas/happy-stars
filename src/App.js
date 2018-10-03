@@ -7,6 +7,10 @@ import MainNav from "./components/MainNav/MainNav";
 
 import instance from './utils/happyStarAxiosInstance';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { clickButton, fetchData } from './store/actions/index';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -85,6 +89,8 @@ class App extends Component {
     }
 
     componentDidMount() {
+
+        this.props.fetchData();
 
         instance.get('api/star')
             .then(response => {
@@ -179,5 +185,17 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStatesToProps = (state) => {
+    return {
+        text: state.exampleReducer.text,
+        isLoading: state.exampleReducer.isLoading
+    }
+};
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({clickButton, fetchData}, dispatch);
+
+export default connect(
+    mapStatesToProps,
+    mapDispatchToProps
+)(App);
 

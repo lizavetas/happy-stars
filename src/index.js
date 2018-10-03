@@ -6,26 +6,20 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Switch, Route  } from 'react-router-dom'
 
 
-const Universes = () => (
-    <p>This is the Universes Page</p>
-);
+import { Provider } from 'react-redux';
+import configurator from './store/configurator';
 
-const Stars = () => (
-    <p>This is the Stars Page</p>
-);
-
-const IRouter = () => (
-    <Switch>
-        <Route exact path='/' component={Universes}/>
-        <Route path='/blog' component={Stars}/>
-    </Switch>
-)
+const initState = {
+    exampleReducer: {
+        text: 'Redux Btn',
+        data: {},
+        isLoading: false
+    }
+};
 
 ReactDOM.render(
-
-       <App>
-           <IRouter/>
-       </App>
-,
+    <Provider store={configurator(initState)}>
+       <App />
+    </Provider>,
     document.getElementById('root'));
 registerServiceWorker();
