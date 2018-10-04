@@ -10,9 +10,7 @@ import MainNav from "./components/MainNav/MainNav";
 import AddNewStar from "./components/AddNewStar/AddNewStar";
 import AddNewUniverse from "./components/AddNewUniverse/AddNewUniverse";
 
-import {fetchData, fetchStars, fetchUniverse, deleteStar} from './store/actions/index';
-
-import axios from 'axios';
+import {fetchData, fetchStars, fetchUniverse, deleteStar, postNewUniverse} from './store/actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -104,9 +102,10 @@ class App extends Component {
                                     return null;
                                 }
                             }}/>
-                            <Route path='/universes/add' render={(props) => {
+                            <Route path='/universes/add' render={() => {
                                 return (
-                                    <AddNewUniverse/>
+                                    <AddNewUniverse
+                                        postNewUniverse={this.props.postNewUniverse}/>
                                 )
                             }}/>
                         </div>
@@ -153,7 +152,8 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(
         fetchUniverse,
         fetchStars,
         fetchData,
-        deleteStar
+        deleteStar,
+        postNewUniverse
     },
     dispatch
 );

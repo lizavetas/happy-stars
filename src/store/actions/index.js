@@ -37,22 +37,6 @@ const getUniversesSuccess = (json) => {
     }
 };
 
-export const fetchUniverse = () => {
-    const url = 'api/universe';
-
-    return (dispatch) => {
-        return instance.get(url)
-            .then((response) => {
-                dispatch(getUniversesSuccess(response.data));
-                return response;
-            })
-            .catch((response) => {
-                dispatch(getUniversesFail(response.data));
-                return(response);
-            })
-    }
-};
-
 const getStarsFail = (json) => {
     return {
         type: actionTypes.GET_STARS_FAIL,
@@ -71,6 +55,35 @@ const deleteStarSuccess = (id) => {
     return {
         type: actionTypes.DELETE_STAR_SUCCESS,
         id: id
+    }
+};
+
+const postUniverseSuccess = (json) => {
+    return {
+        type: actionTypes.POST_UNIVERSE_SUCCESS,
+        universe: json
+    }
+};
+
+const postUniverseError = (json) => {
+    console.log(json);
+};
+
+export const postNewUniverse = () => {
+    const url = 'api/star/';
+    return (dispatch) => {
+        return instance
+            .post('api/universe', {
+                id: 0,
+                name: "Zazstdvazsfdzasvz",
+                "maxSize": 23
+            })
+            .then(function (response) {
+                dispatch(postUniverseSuccess(response));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 };
 
@@ -101,6 +114,22 @@ export const fetchStars = () => {
             })
             .catch((response) => {
                 dispatch(getStarsFail(response.data));
+                return(response);
+            })
+    }
+};
+
+export const fetchUniverse = () => {
+    const url = 'api/universe';
+
+    return (dispatch) => {
+        return instance.get(url)
+            .then((response) => {
+                dispatch(getUniversesSuccess(response.data));
+                return response;
+            })
+            .catch((response) => {
+                dispatch(getUniversesFail(response.data));
                 return(response);
             })
     }

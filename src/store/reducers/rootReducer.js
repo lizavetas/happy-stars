@@ -22,8 +22,6 @@ const exampleReducer = (state = {}, action) => {
                 isLoading: false
             };
         case actionTypes.DELETE_STAR_SUCCESS:
-            console.log(state.stars.stars, action);
-            debugger
             return {
                 ...state,
                 universes: {
@@ -31,6 +29,11 @@ const exampleReducer = (state = {}, action) => {
                     stars: []
                 },
                 isLoading: true
+            };
+        case actionTypes.POST_UNIVERSE_SUCCESS:
+            console.log(action);
+            return {
+                ...state
             };
         default:
             return state;
