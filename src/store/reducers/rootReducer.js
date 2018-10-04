@@ -12,14 +12,12 @@ const exampleReducer = (state = {}, action) => {
         case actionTypes.GET_STARS_SUCCESS:
             return {
                 ...state,
-                stars: action.stars,
-                isLoading: false
+                stars: action.stars
             };
         case actionTypes.GET_UNIVERSES_SUCCESS:
             return {
                 ...state,
-                universes: action.universes,
-                isLoading: false
+                universes: action.universes
             };
         case actionTypes.DELETE_STAR_SUCCESS:
             return {
@@ -27,13 +25,12 @@ const exampleReducer = (state = {}, action) => {
                 universes: {
                     ...state.universes.universes,
                     stars: []
-                },
-                isLoading: true
+                }
             };
         case actionTypes.POST_UNIVERSE_SUCCESS:
-            console.log(action);
+           state.universes.universes.push(action.universe.data);
             return {
-                ...state
+                ...state,
             };
         default:
             return state;

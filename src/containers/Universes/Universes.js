@@ -26,7 +26,7 @@ class Universes extends Component {
 
         return (
             <div className="content">
-                <h2>Universes</h2>
+                <h2>Universes ({universes.length})</h2>
                 <nav className="navbar">
                     <div className="container">
                         <div id="navbarMenuHeroA" className="navbar-menu">

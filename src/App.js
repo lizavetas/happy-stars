@@ -141,6 +141,7 @@ const mapStatesToProps = (state) => {
         });
     }
 
+    console.log('state', state);
     return {
         stars: state.exampleReducer.stars.stars,
         universes: state.exampleReducer.universes.universes

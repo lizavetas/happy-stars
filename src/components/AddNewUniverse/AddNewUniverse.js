@@ -7,7 +7,7 @@ class AddNewUniverse extends Component {
     constructor(props) {
         super(props);
 
-        this.state =    {
+        this.state = {
             id: 0,
             name: '',
             maxSize: 0
@@ -31,26 +31,26 @@ class AddNewUniverse extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className="content">
                 <h2>Add new universe </h2>
                 <div className="field">
                     <label className="label">Universe Name</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="Universe Name" />
+                        <input className="input" type="text" placeholder="Universe Name"/>
                     </div>
                 </div>
                 <div className="field">
                     <label className="label">max. Star Size</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="max. Star Size" />
+                        <input className="input" type="text" placeholder="max. Star Size"/>
                     </div>
                 </div>
                 <div className="field">
                     <div className="control">
                         <button
                             className="button is-primary"
-                            onClick={(e) =>{
+                            onClick={() => {
                                 this.props.postNewUniverse()
                             }}>
                             Add
