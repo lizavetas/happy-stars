@@ -1,21 +1,6 @@
 import * as actionTypes from './actionTypes';
 import instance from '../../utils/happyStarAxiosInstance';
 
-const receiveData = (json) => {
-    return {
-        type: actionTypes.RECV_DATA,
-        data: json,
-        stars: json
-    }
-};
-
-const receiveError = (json) => {
-    return {
-        type: actionTypes.RECV_ERROR,
-        data: json
-    }
-};
-
 const getUniversesFail = (json) => {
     return {
         type: actionTypes.GET_UNIVERSES_FAIL,
@@ -125,22 +110,6 @@ export const fetchUniverse = () => {
             })
             .catch((response) => {
                 dispatch(getUniversesFail(response.data));
-                return(response);
-            })
-    }
-};
-
-export const fetchData = () => {
-    const url = 'api/star';
-
-    return (dispatch) => {
-        return instance.get(url)
-            .then((response) => {
-                dispatch(receiveData(response.data));
-                return response;
-            })
-            .catch((response) => {
-                dispatch(receiveError(response.data));
                 return(response);
             })
     }
