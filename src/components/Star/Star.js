@@ -3,7 +3,7 @@ import React from 'react';
 import { textColor } from '../../utils/layoutHelpers'
 
 const Star = (props) => {
-    const { color, starCount, universeName } = props;
+    const { color, starCount, universeName, name } = props;
     let className = textColor(color);
 
     return(
@@ -17,7 +17,7 @@ const Star = (props) => {
                     </span>
                 </div>
                 <div className="media-content">
-                    <p className="title is-4">John Smith </p>
+                    <p className="title is-4">{name}</p>
                     <div className="subtitle is-6">
                         <p>From <strong>{universeName}</strong> Universe ({starCount} Stars)</p>
                     </div>

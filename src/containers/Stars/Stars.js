@@ -46,9 +46,9 @@ class Stars extends Component {
                                                 className="column"
                                                 key={index}>
                                                 <Star
-                                                    star={star}
                                                     color={star.color}
                                                     starCount={star.starCount}
+                                                    name={star.name}
                                                     universeName={star.universeName}
                                                 />
                                             </div>
