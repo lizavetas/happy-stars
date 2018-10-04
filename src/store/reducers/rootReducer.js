@@ -25,9 +25,9 @@ const exampleReducer = (state = {}, action) => {
 
             return {
                 ...state,
-                stars: {
+                /*stars: {
                     stars: []
-                }
+                }*/
             };
         case actionTypes.POST_UNIVERSE_SUCCESS:
            let universes = [...state.universes.universes, [action.universe.data]];
@@ -38,6 +38,8 @@ const exampleReducer = (state = {}, action) => {
                ...state,
            };
         case actionTypes.POST_STAR_SUCCESS:
+            console.log(11111, state, action);
+            //state.star.push(action.star.data);
             return {
                 ...state,
             };

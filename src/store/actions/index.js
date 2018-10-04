@@ -58,10 +58,10 @@ const deleteStarFail = (id) => {
     }
 };
 
-const postStarSuccess = (json) => {
+const postStarSuccess = (star) => {
     return {
         type: actionTypes.POST_STAR_SUCCESS,
-        universe: json
+        star: star
     }
 };
 
@@ -73,17 +73,18 @@ const postStarFail = (json) => {
 };
 
 
-export const postNewStar = (name, color) => {
+export const postNewStar = (universeId, name, color) => {
     const url = 'api/star/';
     return (dispatch) => {
         return instance
             .post(url, {
                 id: 0,
                 name: name,
-                color: color
+                color: color,
+                universeId: universeId
             })
             .then(function (response) {
-                dispatch(postStarSuccess(response));
+                dispatch(postStarSuccess(response.data));
             })
             .catch(function (error) {
                 console.log(error);

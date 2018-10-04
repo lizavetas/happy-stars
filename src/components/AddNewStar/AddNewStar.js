@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class AddNewStar extends Component {
     constructor(props) {
@@ -25,9 +25,9 @@ class AddNewStar extends Component {
     };
 
     render() {
-        const  { universeName, id } = this.props;
+        const {universeName, postNewStar} = this.props;
 
-        return(
+        return (
             <div className="content">
                 <h2>Add new Star to {universeName}</h2>
                 <div className="field">
@@ -60,7 +60,8 @@ class AddNewStar extends Component {
                     <div className="control">
                         <button
                             className="button is-primary"
-                            onClick={() => console.log(this.state, this.props.id)}>
+                            onClick={() =>
+                                {postNewStar(parseInt(this.props.universeId), this.state.name, this.state.color)}}>
                             Add
                         </button>
                     </div>
