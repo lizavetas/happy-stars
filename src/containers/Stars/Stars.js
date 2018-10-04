@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 
 import Star from '../../components/Star/Star';
 
+import { createColumns } from '../../utils/layoutHelpers'
+
 class Stars extends Component {
     render() {
 
@@ -11,18 +13,19 @@ class Stars extends Component {
         console.log(stars);
 
         // @todo utils
-        const createColumns = (columns, columnSize) => {
+     /*   const createColumns = (columns, columnSize) => {
             return columns.reduce((result, value, index, array) => {
                 if (index % columnSize === 0) {
                     result.push(array.slice(index, index + columnSize));
                 }
                 return result;
             }, [])
-        };
+        };*/
 
         if (!stars) {
             return null;
         }
+
         columns = createColumns(stars, columnSize);
 
         return (

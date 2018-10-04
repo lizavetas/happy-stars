@@ -1,34 +1,17 @@
 import React from 'react';
 
+import { textColor } from '../../utils/layoutHelpers'
+
 const Star = (props) => {
     const { color, starCount, universeName } = props;
-    let displayedColor;
-
-    function iconClass(color) {
-        switch (color) {
-            case 'RED':
-                return 'has-text-danger';
-            case 'GREEN':
-                return 'has-text-success';
-            case 'YELLOW':
-                return 'has-text-warning';
-            case 'BLUE':
-                return 'has-text-info';
-            case 'BLACK':
-                return 'has-text-black-bis';
-            default:
-                return 'icon';
-        }
-    }
-
-    displayedColor = iconClass(color);
+    let className = textColor(color);
 
     return(
         <div className="box">
             <div className="media">
                 <div className="media-left">
                     <span
-                        className={"icon " + displayedColor}
+                        className={"icon " + className}
                         style={{display: "inline", marginRight: "5px"}}>
                         <i className="fas fa-star fa-3x"></i>
                     </span>

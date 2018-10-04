@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { tagColor } from '../../utils/layoutHelpers'
+
 const UniverseDetails = (props) => {
     const {universe} = props;
 
@@ -40,26 +42,7 @@ const UniverseDetails = (props) => {
                 <div className="tags">
                     {
                         universe.stars && universe.stars.map(star => {
-                            let className;
-
-                            function tagColor(color) {
-                                switch (color) {
-                                    case 'RED':
-                                        return 'is-danger';
-                                    case 'GREEN':
-                                        return 'is-success';
-                                    case 'YELLOW':
-                                        return 'is-warning';
-                                    case 'BLUE':
-                                        return 'is-info';
-                                    case 'BLACK':
-                                        return 'is-black';
-                                    default:
-                                        return '';
-                                }
-                            }
-
-                            className = tagColor(star.color);
+                            let className = tagColor(star.color);
 
                             return (
                                 <span
@@ -77,8 +60,6 @@ const UniverseDetails = (props) => {
                 </div>
             </div>
         </div>
-
-
     )
 };
 

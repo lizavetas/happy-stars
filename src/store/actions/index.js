@@ -1,13 +1,6 @@
 import * as actionTypes from './actionTypes';
 import instance from '../../utils/happyStarAxiosInstance';
 
-const getUniversesFail = (json) => {
-    return {
-        type: actionTypes.GET_UNIVERSES_FAIL,
-        data: json
-    }
-};
-
 const getUniversesSuccess = (json) => {
     return {
         type: actionTypes.GET_UNIVERSES_SUCCESS,
@@ -16,24 +9,10 @@ const getUniversesSuccess = (json) => {
     }
 };
 
-const getStarsFail = (json) => {
+const getUniversesFail = (json) => {
     return {
-        type: actionTypes.GET_STARS_FAIL,
+        type: actionTypes.GET_UNIVERSES_FAIL,
         data: json
-    }
-};
-
-const getStarsSuccess = (json) => {
-    return {
-        type: actionTypes.GET_STARS_SUCCESS,
-        stars: json
-    }
-};
-
-const deleteStarSuccess = (id) => {
-    return {
-        type: actionTypes.DELETE_STAR_SUCCESS,
-        id: id
     }
 };
 
@@ -44,10 +23,72 @@ const postUniverseSuccess = (json) => {
     }
 };
 
-const postUniverseError = (json) => {
+const postUniverseFail = (json) => {
     return {
         type: actionTypes.POST_UNIVERSE_FAIL,
         error: json
+    }
+};
+
+const getStarsSuccess = (json) => {
+    return {
+        type: actionTypes.GET_STARS_SUCCESS,
+        stars: json
+    }
+};
+
+const getStarsFail = (json) => {
+    return {
+        type: actionTypes.GET_STARS_FAIL,
+        data: json
+    }
+};
+
+const deleteStarSuccess = (id) => {
+    return {
+        type: actionTypes.DELETE_STAR_SUCCESS,
+        id: id
+    }
+};
+
+const deleteStarFail = (id) => {
+    return {
+        type: actionTypes.DELETE_STAR_FAIL,
+        id: id
+    }
+};
+
+const postStarSuccess = (json) => {
+    return {
+        type: actionTypes.POST_STAR_SUCCESS,
+        universe: json
+    }
+};
+
+const postStarFail = (json) => {
+    return {
+        type: actionTypes.POST_STAR__FAIL,
+        error: json
+    }
+};
+
+
+export const postNewStar = (name, color) => {
+    const url = 'api/star/';
+    return (dispatch) => {
+        return instance
+            .post(url, {
+                id: 0,
+                name: name,
+                color: color
+            })
+            .then(function (response) {
+                dispatch(postStarSuccess(response));
+            })
+            .catch(function (error) {
+                console.log(error);
+                dispatch(postStarFail(error));
+            });
     }
 };
 

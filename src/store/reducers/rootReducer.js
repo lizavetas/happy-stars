@@ -37,6 +37,10 @@ const exampleReducer = (state = {}, action) => {
            return {
                ...state,
            };
+        case actionTypes.POST_STAR_SUCCESS:
+            return {
+                ...state,
+            };
         default:
             return state;
     }

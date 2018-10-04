@@ -13,5 +13,30 @@ export function textColor(color) {
         default:
             return '';
     }
-}
+};
 
+export const tagColor = (color) => {
+    switch (color) {
+        case 'RED':
+            return 'is-danger';
+        case 'GREEN':
+            return 'is-success';
+        case 'YELLOW':
+            return 'is-warning';
+        case 'BLUE':
+            return 'is-info';
+        case 'BLACK':
+            return 'is-black';
+        default:
+            return '';
+    }
+};
+
+export const createColumns = (columns, columnSize) => {
+    return columns.reduce((result, value, index, array) => {
+        if (index % columnSize === 0) {
+            result.push(array.slice(index, index + columnSize));
+        }
+        return result;
+    }, [])
+};

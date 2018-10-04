@@ -2,22 +2,12 @@ import React, {Component} from 'react';
 import Universe from '../../components/Universe/Universe';
 import { NavLink } from 'react-router-dom';
 
+import { createColumns } from '../../utils/layoutHelpers'
 
 class Universes extends Component {
     render() {
-
         const {universes, columnSize} = this.props;
         let columns = [];
-
-        // @todo utils
-        const createColumns = (columns, columnSize) => {
-            return columns.reduce((result, value, index, array) => {
-                if (index % columnSize === 0) {
-                    result.push(array.slice(index, index + columnSize));
-                }
-                return result;
-            }, [])
-        };
 
         if (!universes) {
             return null;
