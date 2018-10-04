@@ -120,8 +120,7 @@ class App extends Component {
 
 const mapStatesToProps = (state) => {
 
-    if (state.exampleReducer.universes && state.exampleReducer.universes.universes
-        && state.exampleReducer.stars && state.exampleReducer.stars.stars) {
+    if (state.exampleReducer.universes.universes && state.exampleReducer.stars.stars) {
 
         state.exampleReducer.universes.universes.forEach(universe => {
             universe.starCount = state.exampleReducer.stars.stars.filter(star => {

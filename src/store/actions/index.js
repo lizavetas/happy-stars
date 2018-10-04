@@ -72,7 +72,6 @@ const postStarFail = (json) => {
     }
 };
 
-
 export const postNewStar = (universeId, name, color) => {
     const url = 'api/star/';
     return (dispatch) => {
