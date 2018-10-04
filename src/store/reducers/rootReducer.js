@@ -32,6 +32,11 @@ const exampleReducer = (state = {}, action) => {
             return {
                 ...state,
             };
+        case actionTypes.POST_STAR__FAIL:
+            console.log(action.error);
+            return {
+                ...state,
+            };
         default:
             return state;
     }

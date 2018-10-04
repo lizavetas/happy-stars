@@ -66,6 +66,7 @@ const postStarSuccess = (star) => {
 };
 
 const postStarFail = (json) => {
+    alert('FAIL');
     return {
         type: actionTypes.POST_STAR__FAIL,
         error: json
