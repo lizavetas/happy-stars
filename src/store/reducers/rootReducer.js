@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import * as actionTypes from '../actions/actionTypes';
 
-
 const exampleReducer = (state = {}, action) => {
     switch (action.type) {
         case actionTypes.GET_STARS_SUCCESS:

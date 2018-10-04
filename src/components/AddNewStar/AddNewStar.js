@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
 
 class AddNewStar extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class AddNewStar extends Component {
     };
 
     render() {
-        const {universeName, postNewStar} = this.props;
+        const {universeName, postNewStar, universeId} = this.props;
 
         return (
             <div className="content">
@@ -37,7 +38,8 @@ class AddNewStar extends Component {
                             className="input"
                             type="text"
                             placeholder="Star Name"
-                            onChange={(event) => this.onNameChange(event)}/>
+                            onChange={(event) => this.onNameChange(event)}
+                        />
                     </div>
                 </div>
                 <div className="field">
@@ -58,6 +60,7 @@ class AddNewStar extends Component {
                 </div>
                 <div className="field">
                     <div className="control">
+                        <NavLink to={"/universes/" + universeId} className="is-active button">Back to Universe</NavLink>
                         <button
                             className="button is-primary"
                             onClick={() =>
