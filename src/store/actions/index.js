@@ -1,12 +1,6 @@
 import * as actionTypes from './actionTypes';
 import instance from '../../utils/happyStarAxiosInstance';
 
-const requestData = () => {
-    return {
-        type: actionTypes.REQ_DATA
-    }
-};
-
 const receiveData = (json) => {
     return {
         type: actionTypes.RECV_DATA,
@@ -66,17 +60,20 @@ const postUniverseSuccess = (json) => {
 };
 
 const postUniverseError = (json) => {
-    console.log(json);
+    return {
+        type: actionTypes.POST_UNIVERSE_FAIL,
+        error: json
+    }
 };
 
-export const postNewUniverse = () => {
-    const url = 'api/star/';
+export const postNewUniverse = (name, maxSize) => {
+    const url = 'api/universe/';
     return (dispatch) => {
         return instance
-            .post('api/universe', {
+            .post(url, {
                 id: 0,
-                name: "Zazstdvazsfdzasvz",
-                "maxSize": 23
+                name: name,
+                maxSize: maxSize
             })
             .then(function (response) {
                 dispatch(postUniverseSuccess(response));
@@ -92,12 +89,10 @@ export const deleteStar = (id) => {
     return (dispatch) => {
         return instance.delete(url)
             .then(response => {
-                console.log(response);
                 dispatch(deleteStarSuccess(id));
                 return response;
             })
             .catch((response) => {
-                console.log(response);
                 return(response);
             })
     }

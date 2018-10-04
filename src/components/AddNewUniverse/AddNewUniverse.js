@@ -11,24 +11,22 @@ class AddNewUniverse extends Component {
             id: 0,
             name: '',
             maxSize: 0
-        }
+        };
     }
 
-    onInputUniverseNameChange(e) {
-        console.log(e);
-        instance
-            .post('api/universe', {
-                id: 0,
-                name: "Zazstdvazsfdzasvz",
-                "maxSize": 23
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
+    handleNameChange = (event) => {
+        this.setState(
+            {
+                name: event.target.value
             });
-    }
+    };
+
+    handleMaxSizeChange = (event) => {
+        this.setState(
+            {
+                maxSize: event.target.value
+            });
+    };
 
     render() {
         return (
@@ -37,13 +35,23 @@ class AddNewUniverse extends Component {
                 <div className="field">
                     <label className="label">Universe Name</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="Universe Name"/>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Universe Name"
+                            onChange={(event) => this.handleNameChange(event)}
+                        />
                     </div>
                 </div>
                 <div className="field">
                     <label className="label">max. Star Size</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="max. Star Size"/>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="max. Star Size"
+                            onChange={(event) => this.handleMaxSizeChange(event)}
+                        />
                     </div>
                 </div>
                 <div className="field">
@@ -51,7 +59,7 @@ class AddNewUniverse extends Component {
                         <button
                             className="button is-primary"
                             onClick={() => {
-                                this.props.postNewUniverse()
+                                this.props.postNewUniverse(this.state.name, this.state.maxSize)
                             }}>
                             Add
                         </button>

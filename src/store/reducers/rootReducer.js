@@ -4,11 +4,6 @@ import * as actionTypes from '../actions/actionTypes';
 
 const exampleReducer = (state = {}, action) => {
     switch (action.type) {
-        case actionTypes.CLICK_BUTTON:
-            return {
-                ...state,
-                text: (state.text === action.text) ? 'REDUX BTN' : action.text
-            };
         case actionTypes.GET_STARS_SUCCESS:
             return {
                 ...state,
@@ -20,18 +15,28 @@ const exampleReducer = (state = {}, action) => {
                 universes: action.universes
             };
         case actionTypes.DELETE_STAR_SUCCESS:
+            let star = state.stars.stars.filter((star) => {
+                return star.id !== action.id;
+            });
+
+            let stars = [...state.stars.stars, ...star];
+
+            //console.log(star, stars, state, state.stars.stars);
+
             return {
                 ...state,
-                universes: {
-                    ...state.universes.universes,
+                stars: {
                     stars: []
                 }
             };
         case actionTypes.POST_UNIVERSE_SUCCESS:
+           let universes = [...state.universes.universes, [action.universe.data]];
+           console.log('universes', universes);
+
            state.universes.universes.push(action.universe.data);
-            return {
-                ...state,
-            };
+           return {
+               ...state,
+           };
         default:
             return state;
     }

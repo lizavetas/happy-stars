@@ -10,7 +10,7 @@ import MainNav from "./components/MainNav/MainNav";
 import AddNewStar from "./components/AddNewStar/AddNewStar";
 import AddNewUniverse from "./components/AddNewUniverse/AddNewUniverse";
 
-import {fetchData, fetchStars, fetchUniverse, deleteStar, postNewUniverse} from './store/actions/index';
+import {fetchStars, fetchUniverse, deleteStar, postNewUniverse} from './store/actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -152,7 +152,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(
     {
         fetchUniverse,
         fetchStars,
-        fetchData,
         deleteStar,
         postNewUniverse
     },
