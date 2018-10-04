@@ -131,7 +131,9 @@ const mapStatesToProps = (state) => {
 
         // @todo universeName for starsView
         state.exampleReducer.stars.stars.forEach(star => {
-
+            star.universeName = state.exampleReducer.universes.universes.filter(universe => {
+                return universe.id === star.universeId
+            })[0].name;
         });
     }
 
