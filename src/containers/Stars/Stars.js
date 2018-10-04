@@ -10,18 +10,6 @@ class Stars extends Component {
         const {stars, columnSize} = this.props;
         let columns = [];
 
-        console.log(stars);
-
-        // @todo utils
-     /*   const createColumns = (columns, columnSize) => {
-            return columns.reduce((result, value, index, array) => {
-                if (index % columnSize === 0) {
-                    result.push(array.slice(index, index + columnSize));
-                }
-                return result;
-            }, [])
-        };*/
-
         if (!stars) {
             return null;
         }

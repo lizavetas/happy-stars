@@ -18,9 +18,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchUniverse().then(response => {
-            this.props.fetchStars().then(response => {
-            });
+        this.props.fetchUniverse().then(() => {
+            this.props.fetchStars().then();
         });
     }
 
@@ -123,10 +122,6 @@ const mapStatesToProps = (state) => {
     if (state.exampleReducer.universes.universes && state.exampleReducer.stars.stars) {
 
         state.exampleReducer.universes.universes.forEach(universe => {
-            universe.starCount = state.exampleReducer.stars.stars.filter(star => {
-                return universe.id === star.universeId;
-            }).length;
-
             universe.stars = state.exampleReducer.stars.stars.filter(star => {
                 return universe.id === star.universeId;
             });
@@ -135,22 +130,11 @@ const mapStatesToProps = (state) => {
         });
 
         // @todo universeName for starsView
-
-/*
         state.exampleReducer.stars.stars.forEach(star => {
-            state.exampleReducer.universes.universes.map(universe => {
-                universe.stars = [];
-                if (star.universeId === universe.id) {
-                    universe.stars.push(star);
-                    star.starCount = universe.starCount;
-                    star.universeName = universe.name;
-                }
-                return universe
-            });
-        });*/
+
+        });
     }
 
-    console.log('STATE', state);
     return {
         stars: state.exampleReducer.stars.stars,
         universes: state.exampleReducer.universes.universes

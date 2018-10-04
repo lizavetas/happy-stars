@@ -6,7 +6,6 @@ let baseURL = devMode ? 'http://localhost:3200/' : 'https://happy-stars.herokuap
 const instance = axios.create({
     //baseURL,
     baseURL: 'https://happy-stars.herokuapp.com/',
-    //baseURL: 'http://localhost:3200/'
 });
 
 export default instance;

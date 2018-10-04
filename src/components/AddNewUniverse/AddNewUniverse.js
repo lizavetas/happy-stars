@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import instance from '../../utils/happyStarAxiosInstance';
-
 class AddNewUniverse extends Component {
 
     constructor(props) {

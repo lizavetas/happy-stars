@@ -44,7 +44,7 @@ const getStarsFail = (json) => {
     }
 };
 
-const deleteStarSuccess = (id) => {
+export const deleteStarSuccess = (id) => {
     return {
         type: actionTypes.DELETE_STAR_SUCCESS,
         id: id
