@@ -5,7 +5,7 @@ export function textColor(color) {
         case 'GREEN':
             return 'has-text-success';
         case 'YELLOW':
-            return 'has-text-danger';
+            return 'has-text-warning';
         case 'BLUE':
             return 'has-text-info';
         case 'BLACK':
