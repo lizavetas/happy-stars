@@ -13,7 +13,7 @@ export function textColor(color) {
         default:
             return '';
     }
-};
+}
 
 export const tagColor = (color) => {
     switch (color) {
@@ -30,7 +30,7 @@ export const tagColor = (color) => {
         default:
             return '';
     }
-};
+}
 
 export const createColumns = (columns, columnSize) => {
     return columns.reduce((result, value, index, array) => {
@@ -39,4 +39,4 @@ export const createColumns = (columns, columnSize) => {
         }
         return result;
     }, [])
-};
+}

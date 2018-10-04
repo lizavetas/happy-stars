@@ -127,23 +127,31 @@ const mapStatesToProps = (state) => {
             universe.starCount = state.exampleReducer.stars.stars.filter(star => {
                 return universe.id === star.universeId;
             }).length;
+
+            universe.stars = state.exampleReducer.stars.stars.filter(star => {
+                return universe.id === star.universeId;
+            });
+
+            universe.starCount = universe.stars.length;
         });
 
+        // @todo universeName for starsView
+
+/*
         state.exampleReducer.stars.stars.forEach(star => {
             state.exampleReducer.universes.universes.map(universe => {
+                universe.stars = [];
                 if (star.universeId === universe.id) {
-                    let stars = [];
-                    stars.push(star);
-                    universe.stars = stars;
+                    universe.stars.push(star);
                     star.starCount = universe.starCount;
                     star.universeName = universe.name;
                 }
                 return universe
             });
-        });
+        });*/
     }
 
-    console.log('state', state);
+    console.log('STATE', state);
     return {
         stars: state.exampleReducer.stars.stars,
         universes: state.exampleReducer.universes.universes
